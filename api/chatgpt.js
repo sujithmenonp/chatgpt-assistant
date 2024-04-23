@@ -14,7 +14,7 @@ async function chatGPTAssistant(question, model) {
             {
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': 'Bearer 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'
+                    'Authorization': 'Bearer YOUR_API_KEY'
                 }
             }
         );
