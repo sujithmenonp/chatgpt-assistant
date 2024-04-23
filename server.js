@@ -11,7 +11,8 @@ app.use(bodyParser.json());
 app.post('/ask', async (req, res) => {
     try {
         const question = req.body.question;
-        const response = await chatGPTAssistant("What is the capital of France?", "gpt-3.5");
+        const setupText = req.body.setupText;
+        const response = await chatGPTAssistant(question, "gpt-3.5", setupText);
         res.json({ response });
     } catch (error) {
         res.status(500).json({ error: error.message });

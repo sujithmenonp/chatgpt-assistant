@@ -1,11 +1,14 @@
 const axios = require('axios');
 
-async function chatGPTAssistant(question, model) {
+async function chatGPTAssistant(question, model, setupText) {
     try {
+        // Concatenate setup text and question
+        const prompt = setupText + "\n\n" + question;
+
         const response = await axios.post(
             'https://api.openai.com/v1/completions',
             {
-                prompt: question,
+                prompt: prompt,
                 model: model, // Include the model parameter
                 max_tokens: 50, // Adjust based on your requirements
                 temperature: 0.7, // Adjust based on your requirements
